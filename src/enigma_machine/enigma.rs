@@ -25,7 +25,7 @@ impl Enigma {
 
     pub fn encrypt(&mut self, string: &str) -> String {
 
-        let encrypted: Vec<String> = self.encode_base64(string).chars().map( |character| {
+        let encrypted: Vec<String> = string.chars().map( |character| {
 
             let intput = self.plugboard.input(&character);
 
@@ -59,7 +59,7 @@ impl Enigma {
             self.plugboard.output(&out_encrypted).to_string()
         }).collect();
 
-        self.decode_base64(&decrypted.join(""))
+        decrypted.join("")
     }
 
     fn decode_base64(&self, string: &str) -> String {
