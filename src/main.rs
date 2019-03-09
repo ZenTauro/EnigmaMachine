@@ -11,8 +11,9 @@ use enigma_machine::{ SUBSTITUTION_TABLE1, SUBSTITUTION_TABLE2, SUBSTITUTION_TAB
 mod utility;
 
 fn main() {
-    enigma("A quick brown fox jumps over the lazy dog.", "ABC");
-    enigma("いろはにほへとちりぬるを わかよたれそつねならむ うゐのおくやまけふこゑて あさきゆめみしえひもせすん", "DEF");
+    let args: Vec<String> = std::env::args()
+        .collect();
+    enigma(&args[1] , "RTX");
 }
 
 fn enigma(string: &str, positions: &str) {
